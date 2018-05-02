@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <header>
+            <% include ../partials/header %>
+            <%- include('../partials/sub-header', {image: 'kontakt.jpeg', title: 'Kontakt', className: 'contact-sub-header'}) %>
+        </header>
+        <main>
+            <div class="contact-section1 section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="contact-types">
+                                <div class="contact-types-item contact-types-item-separator">
+                                    <div class="contact-types-item-left">
+                                        <img src="/img/location-contact.svg" alt="contact">
+                                    </div>
+                                    <div class="contact-types-item-right">
+                                        <p>
+                                            Usługi budowlane
+                                            Fur-Bud Ryszard Pustelnik
+                                            ul. Mickiewicza 45B Tyczyn
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="contact-types-item contact-types-item-separator">
+                                    <div class="contact-types-item-left">
+                                        <img src="/img/phone.svg" alt="contact">
+                                    </div>
+                                    <div class="contact-types-item-right">
+                                        <p>Numer tel.: <a href="tel:+48111222333">+48 111 222 333</a></p>
+                                    </div>
+                                </div>
+                                <div class="contact-types-item">
+                                    <div class="contact-types-item-left">
+                                        <img src="/img/email.svg" alt="contact">
+                                    </div>
+                                    <div class="contact-types-item-right">
+                                        <p>Email: <a href="mailto:kontakt@fur-bud.pl">kontakt@fur-bud.pl</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <form class="form" action="/email" method="post" id="form">
+                                <div class="row fix-row">
+                                    <div class="col-sm-6">
+                                        <div class="input-field">
+                                            <input type="text" name="email" class="validate" id="email" onkeyup="this.setAttribute('value', this.value);" value="">
+                                            <label for="name" class="">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-field">
+                                            <input type="text" name="phone" class="validate" id="phone" onkeyup="this.setAttribute('value', this.value);" value="">
+                                            <label for="name" class="">Telefon</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-field">
+                                    <textarea name="message" id="message" class="materialize-textarea" onkeyup="this.setAttribute('value', this.value);" value=""></textarea>
+                                    <label for="message">Wiadomość</label>
+                                </div>
+                                <div class="button-row">
+                                    <button class="button" type="submit">Wyślij</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-section2">
+                <div id="map" style="height: 400px; width: 100%"></div>
+            </div>
+        </main>
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="/js/mobile-menu.js"></script>
+        <script src="/js/contact.js"></script>
+        <script src="/js/googlemaps-location.js"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeaeHlrPMEUF0hdfkzCBSqt9oI6vmNbyE&callback=initMap">
+        </script>
+    </body>
+</html>

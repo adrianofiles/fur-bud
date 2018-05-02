@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <% include ../partials/head %>
+        <link rel="stylesheet" type="text/css" href="/baguetteBox/baguetteBox.min.css">
+    </head>
+    <body>
+        <header>
+            <% include ../partials/header %>
+            <%- include('../partials/sub-header', {image: 'realizacje.jpeg', title: 'Realizacje', className: 'portfolio-sub-header'}) %>
+        </header>
+        <main>
+            <div class="portfolio-section1 section">
+                <div class="container">
+                    <div class="portfolio-section1-content">
+                        <h2>Wykonane projekty</h2>
+                        <p>
+                            Poniżej przedstawiamy Państwo kilka wybranych przez nas realizacji,
+                            w wykonaniu których uczestniczyliśmy, a które w pełny i kompleksowy
+                            sposób zobrazować mogą posiadane przez nas umiejętności oraz doświadczenie.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-section2 section">
+                <div class="container">
+                    <%for (var project in projects){%>
+                    <div class="col-sm-6">
+                        <div class="project">
+                            <div class="project-top" style="background-image: url('<%=projects[project].projectImage%>')">
+                                <div class="project-top-bg"></div>
+                                <div class="show-more">
+                                    <img src="/img/loupe.svg">
+                                </div>
+                            </div>
+                            <div class="project-bottom">
+                                <h3><%=projects[project].title%></h3>
+                                <p><%=projects[project].type%></p>
+                            </div>
+                            <div class="gallery">
+                                <%for (var i = 0; i < projects[project].images.length; i++){%>
+                                    <a href="<%=projects[project].images[i]%>"></a>
+                                <%}%>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+
+                </div>
+            </div>
+        </main>
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+
+        <script src="/js/mobile-menu.js"></script>
+        <script src="/baguetteBox/baguetteBox.min.js"></script>
+        <script src="/js/projects.js"></script>
+    </body>
+</html>

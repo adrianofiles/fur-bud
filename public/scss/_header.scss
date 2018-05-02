@@ -1,0 +1,130 @@
+@import "variables";
+
+.navigation {
+    position: fixed;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 1000;
+    background: $white;
+    transition: 0.3s;
+
+    .row {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 20px;
+
+        @media (max-width: 360px) {
+            font-size: 16px;
+        }
+    }
+
+    &-menu {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-align: right;
+
+        @media (max-width: 520px) {
+            display: none;
+        }
+
+        li {
+            display: inline-block;
+            padding: 0 10px;
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    &-link {
+        transition: 0.3s ease;
+        text-decoration: none;
+        color: $font-black;
+
+        &:hover {
+            text-decoration: none;
+            color: $gold;
+        }
+    }
+}
+
+.scrolled {
+    padding: 5px 0;
+    background: $navy-blue;
+
+    .navigation-link {
+        color: $gold;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}
+
+.hamburger {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: -15px;
+
+    @media (max-width: 520px) {
+        display: inline-block;
+    }
+
+    &-icon {
+        width: 30px;
+    }
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: $white;
+
+    .close-menu {
+        position: absolute;
+        right: 35px;
+        top: 12px;
+
+        img {
+            width: 30px;
+        }
+    }
+
+    @media (min-width: 520px) {
+        display: none;
+    }
+}
+
+.navbar-mobile {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    li {
+        padding: 10px;
+
+        a {
+            text-decoration: none;
+            color: $black;
+            font-weight: 700;
+        }
+    }
+}

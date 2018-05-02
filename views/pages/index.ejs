@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+
+        <header>
+            <% include ../partials/header %>
+            <% include ../partials/slider %>
+        </header>
+
+        <main>
+            <div class="index-section1 section">
+                <div class="container">
+                    <div class="index-section1-title">
+                        <h2>Zakres działalności.</h2>
+                        <p>
+                            W swojej działalności koncentrujemy się na dostarczaniu
+                            kompleksowych rozwiązań z zakresu szeroko pojętych robót budowlanych.
+                            Posiadamy odpowiednie zaplecze personalne oraz techniczne,
+                            co pozwala nam na szybką i sprawną realizację powierzanych nam prac budowlanych.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="box">
+                                <div class="box-content">
+                                    <img src="/img/wall2.svg">
+                                    <h3>Budowa domów</h3>
+                                    <p>
+                                        Nasza oferta obejmuje kompleksową budowę domów jednorodzinnych od fundamentów, murów, stropów aż po dach.
+                                        W sferze budowy domów zaspokajamy potrzeby nawet najbardziej wymagających klientów.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box">
+                                <div class="box-content">
+                                    <img src="/img/roof3.svg">
+                                    <h3>Konstrukcje dachowe</h3>
+                                    <p>
+                                        Oferujemy kompleksową obsługę dachów od budowy, podnoszenia dachów, przeróbki,
+                                        pokrycia dachu, remont, naprawę po  rozbiórki dachów.
+                                        Wykonujemy kompleksowe roboty ciesielskio-dekarskie, budowa więźby dachowej
+                                        i konstrukcje drewniane.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box">
+                                <div class="box-content">
+                                    <img src="/img/tiles2.svg">
+                                    <h3>Wykończenia wnętrz</h3>
+                                    <p>
+                                        Od początku naszej działalności naszą specjalizacją pozostają szeroko rozumiane usługi glazurnicze.
+                                        Jesteśmy Państwu w stanie zaoferować układanie płytek oraz inne usługi glazurnicze na wysokim poziomie.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper">
+                        <a class="button" href="/oferta">Sprawdź szczegóły</a>
+                    </div>
+                </div>
+            </div>
+            <div class="index-section2 section">
+                <div class="container">
+                    <div class="index-section2-title">
+                        <h2>Jak działamy ?</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="work-box">
+                                <h3><img src="/img/key1.svg"> Skontaktuj się z nami.</h3>
+                                <p>Wybierz najdogodniejszy dla Ciebie sposób kontaktu z nami.
+                                    <br>Dane kontaktowe:
+                                    <br>Nr tel.: <a href="tel:+48111222333">+48 111 222 333</a>
+                                    <br>Email: <a href="mailto:kontakt@fur-bud.pl">kontakt@fur-bud..pl</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="work-box">
+                                <h3><img src="/img/key2.svg"> Ustalmy szczegóły.</h3>
+                                <p>
+                                    Budowa domu, przygotowanie fundamentów, układanie płytek
+                                    czy też montaż dachu? Ustalmy szczegóły oraz dogodny dla Ciebie termin naszej wizyty.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="work-box">
+                                <h3><img src="/img/key3.svg"> Realizacja.</h3>
+                                <p>Przyjeżdżamy pod wskazany adres. Za darmo wycenimy koszt inwestycji. Doradzamy na etapie wyceny usługi, jak również na etapie montażu.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper">
+                        <a class="button" href="/realizacje">Przykładowe realizacje</a>
+                    </div>
+                </div>
+            </div>
+            <div class="index-section3">
+                <div id="map" style="height: 400px; width: 100%"></div>
+            </div>
+        </main>
+
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+
+        <script src="/js/siema.min.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/mobile-menu.js"></script>
+        <script src="/js/googlemaps-location.js"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeaeHlrPMEUF0hdfkzCBSqt9oI6vmNbyE&callback=initMap">
+        </script>
+    </body>
+</html>

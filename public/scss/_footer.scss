@@ -1,0 +1,44 @@
+@import "variables";
+
+footer {
+    background: $navy-blue;
+    color: $gold;
+}
+
+.footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .row {
+
+        @media (max-width: 425px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        & > div {
+            @media (max-width: 425px) {
+                width: 100%;
+            }
+        }
+    }
+
+    &-left {
+        text-align: left;
+    }
+
+    &-right {
+        text-align: right;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+
+        @media (max-width: 425px) {
+            text-align: center;
+        }
+    }
+}

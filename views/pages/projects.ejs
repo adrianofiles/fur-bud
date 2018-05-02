@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <div class="admin">
+            <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="dashboard">Panel administratora</a>
+                        </div>
+                        <div class="col-sm-6 top-menu-left">
+                            <a class="" href="projects">Lista projektów</a>
+                            <a class="button-logout" id="logOut" href="">Wyloguj się</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="" style="margin-top: 10px">
+                    <div class="row">
+                        <ul>
+                            <%for (var project in projects){%>
+                            <li><img class="img-responsive" style="width: 200px; height:120px" src="<%=projects[project].projectImage%>"><%=projects[project].title%><a href="projects/<%= projects[project]._id %>" style="margin-left: 10px">Szczegóły</a></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            document.querySelector('#logOut').addEventListener('click', function (e) {
+                e.preventDefault();
+                axios.get('/user/logout')
+                    .then(function (response) {
+                        window.location.replace("/admin");
+                    })
+                    .catch(function (error) {
+                    });
+            });
+
+            axios.get('/project')
+                .then(function (response) {
+                    console.log(response)
+                })
+                .catch(function (error) {
+                });
+        </script>
+    </body>
+</html>

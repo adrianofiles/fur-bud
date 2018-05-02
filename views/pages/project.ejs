@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+<div class="admin">
+    <div class="top-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <a href="/admin/dashboard">Panel administratora</a>
+                </div>
+                <div class="col-sm-6 top-menu-left">
+                    <a class="/admin" href="">Lista projektów</a>
+                    <a class="button-logout" id="logOut" href="">Wyloguj się</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="" style="margin-top: 10px">
+            <div class="row">
+                to jest projekt single
+                <span id="projectId"><%= projectId %></span>
+                <p>Dodaj zdjecie</p>
+                <form id="addImage" action="/project/<%= projectId %>" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="btn btn-default">
+                            Browse <input type="file" id="image" name="image" hidden>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-lg">Dodaj zdjecie</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <p style="margin-top: 30px;">Zdjecia w tym projekcie:</p>
+            <%for (var image in images){%>
+                <div class="col-sm-4" style="margin-bottom: 10px;"><img class="img-responsive" src="<%=images[image]%>"></div>
+            <%}%>
+    </div>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    document.querySelector('#logOut').addEventListener('click', function (e) {
+        e.preventDefault();
+        axios.get('/user/logout')
+            .then(function (response) {
+                window.location.replace("/admin");
+            })
+            .catch(function (error) {
+            });
+    });
+
+    var project = document.getElementById('projectId').textContent;
+    console.log(project)
+
+    document.querySelector('#addImage').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var formData = new FormData();
+        var imagefile = document.querySelector('#image');
+        formData.append("images", imagefile.files[0]);
+        axios.patch('/project/' + project, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(function (response) {
+            console.log(response);
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
+</script>
+</body>
+</html>

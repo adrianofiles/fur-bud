@@ -1,0 +1,52 @@
+@import "variables";
+
+.header-sub {
+    height: 50vh;
+    position: relative;
+
+    .header-sub-bg {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: linear-gradient(
+                        transparentize($black, .3),
+                        transparentize($black, .3));
+        background-size: cover;
+        //background-position: center;
+        background-position: 50% 75%;
+        background-repeat: no-repeat;
+
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+
+            h1 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 50%;
+                color: $white;
+                text-align: center;
+                font-size: 40px;
+            }
+
+            .dot {
+                color: $gold;
+            }
+        }
+    }
+
+    .contact-sub-header {
+        background-position: 50% 20%;
+    }
+
+    .portfolio-sub-header {
+        background-position: 50% 50%;
+    }
+}

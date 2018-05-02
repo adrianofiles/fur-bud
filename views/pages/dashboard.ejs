@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <div class="admin">
+            <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="dashboard">Panel administratora</a>
+                        </div>
+                        <div class="col-sm-6 top-menu-left">
+                            <a class="" href="projects">Lista projektów</a>
+                            <a class="button-logout" id="logOut" href="">Wyloguj się</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="" style="margin-top: 10px">
+                    <p>Dodaj projekt</p>
+                    <form id="addProject" action="/project" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Nazwa projektu</label>
+                            <input type="text" class="form-control" name="title" id="title" style="width: 450px">
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Rodzaj projektu:</label>
+                            <select class="form-control" id="type" style="width: 450px" name="type">
+                                <option value="Domy">Domy</option>
+                                <option value="Dachy">Dachy</option>
+                                <option value="Płytki">Płytki</option>
+                                <option value="Inne">Inne</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="btn btn-default">
+                                Browse <input type="file" id="projectImage" name="projectImage" hidden>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-warning btn-lg">Dodaj projekt</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            document.querySelector('#logOut').addEventListener('click', function (e) {
+                e.preventDefault();
+                axios.get('/user/logout')
+                    .then(function (response) {
+                        window.location.replace("/admin");
+                    })
+                    .catch(function (error) {
+                    });
+            });
+
+            document.querySelector('#addProject').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                var formData = new FormData();
+                var imagefile = document.querySelector('#projectImage');
+                formData.append("projectImage", imagefile.files[0]);
+                formData.append("title", document.querySelector('#title').value);
+                formData.append("type", document.querySelector('#type').value);
+                axios.post('/project', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }).then(function (response) {
+                    console.log(response);
+                })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            });
+        </script>
+    </body>
+</html>

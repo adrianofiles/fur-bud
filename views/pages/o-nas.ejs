@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <header>
+            <% include ../partials/header %>
+            <%- include('../partials/sub-header', {image: 'o-nas4.jpeg', title: 'O Nas', className: ''}) %>
+        </header>
+        <main>
+            <div class="about-us-section1 section">
+                <div class="container">
+                    <p class="about-us-section1-content">
+                        Swoją działalność koncentrujemy na terenie Podkarpacia oraz okolic. Świadczymy usługi budowlane,
+                        dekarskie oraz usługi glazurnicze w Rzeszowie, Tyczynie, Dynowie, Sanoku, Jarosławiu, Łańcucie,
+                        Jaśle, Przeworsku. Z chęcią podejmiemy się realizacji zleceń na terenie sąsiadujących województw.
+                        Wychodząc naprzeciw oczekiwaniom naszych Klientów, w zależności od ich preferencji,
+                        wykonujemy zlecone nam prace przy wykorzystaniu materiałów budowlanych dostarczanych
+                        bezpośrednio przez kontrahentów lub zakupionych przez nas zgodnie z przedkładanym kosztorysem i projektem wykonawczym.
+                    </p>
+                </div>
+            </div>
+            <div class="about-us-section2 section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img class="about-us-section2-image" src="/img/o-nas-section.jpeg" alt="picture">
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="">
+                                <h2>Wieloletnie doświadczenie</h2>
+                                <p>
+                                    Od początku istnienia stawiamy na rozwój oraz doskonalenie swoich umiejętności.
+                                    Naszym Klientom oferujemy rzetelność i fachowość naszych pracowników,
+                                    oraz wieloletnie doświadczenie w branży które w połączeniu z nowoczesnym
+                                    sprzętem przekłada się na wysoką jakość świadczonych przez nas usług.
+                                    Decydując się na naszą firmę gwarantujemy solidne wykonanie powierzonych prac,
+                                    pełne doradztwo oraz terminową realizację zamówień.
+
+                                    Zapraszamy do zapoznania się ze <a href="oferta">szczegółową ofertą.</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+
+        <script src="/js/mobile-menu.js"></script>
+    </body>
+</html>
